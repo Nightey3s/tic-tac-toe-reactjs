@@ -8,7 +8,7 @@ import './index.css';
 
 /* Square Class */
 //The Square component renders a single <button>
-class Square extends React.Component {
+/*class Square extends React.Component {
   //a constructor to the class to initialize the state
 //  constructor (props){
 //    super(props);
@@ -25,6 +25,14 @@ class Square extends React.Component {
       </button>
     );
   }
+}*/
+
+function Square(props) {
+    return (
+            <button className="square" onClick={props.onClick}>
+            {props.value}
+            </button>
+            );
 }
 
 /* Board Class */
