@@ -10,18 +10,18 @@ import './index.css';
 //The Square component renders a single <button>
 class Square extends React.Component {
   //a constructor to the class to initialize the state
-  constructor (props){
-    super(props);
-      this.state = {
-          value: null,
-      };
-    }
+//  constructor (props){
+//    super(props);
+//      this.state = {
+//          value: null,
+//      };
+//    }
     
   render() {
     return (
             <button className="square"
-            onClick={() => this.setState({value: 'X'})}>
-        {this.state.value}
+            onClick={() => this.props.onClick()}>
+        {this.props.value}
       </button>
     );
   }
@@ -30,9 +30,32 @@ class Square extends React.Component {
 /* Board Class */
 //Board renders 9 squares
 class Board extends React.Component {
+    //constructor for board - filled with nulls
+    /* Should look as below when filled
+     [
+       'O', null, 'X',
+       'X', 'X', 'O',
+       'O', null, null,
+     ]
+     */
+    constructor(props) {
+        super(props);
+        this.state = {
+            squares: Array(9).fill(null),
+        };
+    }
+    
+    handleClick(i) {
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares:squares});
+    }
+    
   renderSquare(i) {
     //return <Square />;
-      return <Square value={i} />;
+      return <Square
+      value={this.state.squares[i]}
+      onClick= {() => this.handleClick(i)}/>;
   }
 
   render() {
