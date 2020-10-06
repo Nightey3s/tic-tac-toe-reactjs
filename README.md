@@ -3,4 +3,4 @@
 ### This is my first project involving ReactJS
 
 ## [My website](https://briantham.io)
-## [Play this game]()
+## [Play this game](https://briantham.io/tic-tac-toe-reactjs/)
