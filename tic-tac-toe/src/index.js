@@ -9,10 +9,19 @@ import './index.css';
 /* Square Class */
 //The Square component renders a single <button>
 class Square extends React.Component {
+  //a constructor to the class to initialize the state
+  constructor (props){
+    super(props);
+      this.state = {
+          value: null,
+      };
+    }
+    
   render() {
     return (
-      <button className="square">
-        {this.props.value}
+            <button className="square"
+            onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
       </button>
     );
   }
