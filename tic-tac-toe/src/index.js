@@ -1,22 +1,29 @@
+/* Tutorial from: https://reactjs.org/tutorial/tutorial.html
+ This tutorial teaches you how to create a simple tic-tac-toe game using React
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 /* Square Class */
+//The Square component renders a single <button>
 class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {this.props.value}
       </button>
     );
   }
 }
 
 /* Board Class */
+//Board renders 9 squares
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    //return <Square />;
+      return <Square value={i} />;
   }
 
   render() {
@@ -46,6 +53,7 @@ class Board extends React.Component {
 }
 
 /* Game Class*/
+//Game component renders a board with placeholder values
 class Game extends React.Component {
   render() {
     return (
